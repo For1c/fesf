@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск книги</title>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Введите название книги...">
+    <button onclick="performSearch()">Поиск</button>
+    <div id="bookInfo"></div>
+
+
+    <form id="purchaseForm">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name">
+        
+        <label for="email">Почта:</label>
+        <input type="email" id="email" name="email">
+        
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone">
+        
+        <label for="address">Адрес:</label>
+        <input type="text" id="address" name="address">
+        
+        <button type="submit">Отправить</button>
+    </form>    
+    
+<script>
+    async function submitForm(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
+        
+        const sheetURL = 'https://docs.google.com/spreadsheets/d/1uNWOAkutNm86BDOq-RY5TfxrnBMHr4GHyZwho8iUIUw/edit#gid=0'; // Замените на фактический URL вашей таблицы
+        const dataURL = `${sheetURL}?entry.123456789=${name}&entry.987654321=${email}&entry.111111111=${phone}`;
+        window.location.href = dataURL;
+    }
+</script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
